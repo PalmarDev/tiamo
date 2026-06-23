@@ -1,0 +1,110 @@
+.wrapper {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.orbitShell {
+  position: absolute;
+  width: var(--orbit-width);
+  height: var(--orbit-height);
+  transform: rotate(var(--orbit-tilt));
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(255 255 255 / 14%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 36px rgb(255 255 255 / 4%);
+}
+
+.orbitMotion {
+  position: absolute;
+  inset: 0;
+  animation: orbitSpin var(--orbit-duration) linear infinite;
+}
+
+.item {
+  position: absolute;
+  left: calc(50% + var(--item-x));
+  top: calc(50% + var(--item-y));
+  transform: translate(-50%, -50%);
+}
+
+.phraseText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 10.75rem;
+  padding: 0.42rem 0.78rem;
+  border-radius: 999px;
+  background: rgb(255 248 251 / 10%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  box-shadow: 0 12px 30px rgb(0 0 0 / 16%);
+  backdrop-filter: blur(12px);
+  color: #fff6f8;
+  font-size: clamp(0.78rem, 1.2vw, 0.92rem);
+  line-height: 1.25;
+  text-align: center;
+  animation: counterSpin var(--orbit-duration) linear infinite;
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterSpin {
+  from {
+    transform: rotate(calc(-1 * var(--orbit-tilt)));
+  }
+
+  to {
+    transform: rotate(calc(-360deg - var(--orbit-tilt)));
+  }
+}
+
+@media (max-width: 1023px) {
+  .phraseText {
+    max-width: 9.35rem;
+    padding: 0.38rem 0.68rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktopOnlyOrbit,
+  .mobileHidden {
+    display: none;
+  }
+
+  .phraseText {
+    max-width: 7.7rem;
+    padding: 0.34rem 0.62rem;
+    font-size: 0.72rem;
+    line-height: 1.18;
+  }
+
+  .orbitShell {
+    transform: scale(0.92) rotate(var(--orbit-tilt));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitMotion,
+  .phraseText {
+    animation: none;
+  }
+
+  .phraseText {
+    transform: rotate(calc(-1 * var(--orbit-tilt)));
+  }
+}
