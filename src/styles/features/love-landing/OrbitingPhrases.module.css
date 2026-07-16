@@ -81,10 +81,6 @@
 }
 
 @media (max-width: 767px) {
-  .wrapper {
-    display: none;
-  }
-
   .desktopOnlyOrbit,
   .mobileHidden {
     display: none;

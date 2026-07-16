@@ -4,14 +4,8 @@ export type LovePhoto = {
 };
 
 export const loveLandingContent = {
-  eyebrow: "Nuestro pequeño universo",
-  title: "Gabriel & Aydelin",
-  subtitle: "Cada recuerdo contigo se convierte en uno de mis lugares favoritos.",
-  dedication: {
-    title: "Donde siempre quiero volver",
-    body: "Esta página guarda una parte de todo lo bonito que hemos vivido. Gracias por tu amor, por tu calma y por hacer que incluso los días sencillos se sientan especiales.",
-    signature: "Con todo mi amor, Gabriel",
-  },
+  title: "Para ti, mi amor",
+  subtitle: "Un pequeño universo hecho con todo lo que siento por ti.",
   photos: [
     {
       src: "/images/love/photo-1.jpg",
@@ -76,7 +70,7 @@ export const loveLandingContent = {
     {
       src: "/images/love/photo-16.jpg",
       alt: "Compartiendo en un dia tan especial y lleno de amor",
-    },
+    }
   ] satisfies LovePhoto[],
   phrases: [
     "Eres mi lugar favorito.",
